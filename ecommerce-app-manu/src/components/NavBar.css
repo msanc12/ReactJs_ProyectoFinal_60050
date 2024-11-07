@@ -1,0 +1,32 @@
+.navbar {
+  background-color:  #000000 ;  
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000 !important;  
+}
+
+.nav-link {
+  color: #858ac5 !important;  
+  font-size: 1rem;
+  margin-right: 1rem;
+  transition: #000000 0.3s ease; 
+}
+
+.nav-link:hover {
+  color: #000000;
+}
+
+.nav-item {
+  margin-left: 1rem; 
+}
+
+.navbar-toggler {
+  border-color: #000000; 
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 123, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Cambia el color del icono del botón de menú */
+}

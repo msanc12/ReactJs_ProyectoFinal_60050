@@ -1,0 +1,17 @@
+ 
+.img-detail {
+  max-height: 400px;
+  object-fit: contain;
+  background-color: var(--background-color);
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.text-muted {
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
