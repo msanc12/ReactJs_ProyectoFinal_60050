@@ -19,12 +19,4 @@ Esta es una aplicación de e-commerce desarrollada con React y Bootstrap. Utiliz
 
 - React
 - Bootstrap
-- React Router DOM
 - Firebase
-
-## Instalación
-
-1. Clonar el repositorio.
-2. Ejecutar `npm install` para instalar las dependencias.
-3. Configurar Firebase con tus credenciales.
-4. Ejecutar `npm start` para iniciar la aplicación.
