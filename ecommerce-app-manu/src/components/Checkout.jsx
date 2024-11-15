@@ -1,10 +1,9 @@
-// src/components/Checkout.js
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../firebase';
-import Brief from './Brief'; // Importar el componente Brief
-import './Checkout.css'; // Importar el archivo CSS
+import { db } from '../firebase'; 
+import Brief from './Brief'; 
+import './Checkout.css'; 
 
 const Checkout = () => {
   const { cartItems, clearCart } = useContext(CartContext);
@@ -13,7 +12,7 @@ const Checkout = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [confirmEmail, setConfirmEmail] = useState('');
-  const [order, setOrder] = useState(null); // Estado para almacenar la orden
+  const [orderId, setOrderId] = useState(null); // Estado para almacenar el ID de la orden
 
   const handleCheckout = async () => {
     if (email !== confirmEmail) {
@@ -33,21 +32,21 @@ const Checkout = () => {
 
     try {
       const orderRef = await addDoc(collection(db, 'orders'), newOrder);
-      alert(`Orden Generada! Tu ID de orden es: ${orderRef.id}`);
-      setOrder({ ...newOrder, id: orderRef.id }); // Almacenar la orden en el estado
+      alert(`Orden generada! ID de Orden es ${orderRef.id}`);
+      setOrderId(orderRef.id); // Almacenar el ID de la orden en el estado
       clearCart();
     } catch (e) {
-      console.error("Error al registrar orden: ", e);
+      console.error("Error agregar el documento: ", e);
     }
   };
 
   return (
     <div className="container mt-4">
-      {order ? (
-        <Brief order={order} /> // Mostrar el componente Brief si hay una orden
+      {orderId ? (
+        <Brief orderId={orderId} /> 
       ) : (
         <>
-          <h2>Generar pago</h2>
+          <h2>Generar Orden - Comprar</h2>
           <form>
             <div className="form-group">
               <label>Nombre</label>
@@ -69,7 +68,7 @@ const Checkout = () => {
               <label>Confirmar Email</label>
               <input type="email" className="form-control" value={confirmEmail} onChange={e => setConfirmEmail(e.target.value)} />
             </div>
-            <button type="button" onClick={handleCheckout} className="btn btn-primary">Generar orden</button>
+            <button type="button" onClick={handleCheckout} className="btn btn-primary">Generar Orden - Comprar</button>
           </form>
         </>
       )}
